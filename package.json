@@ -1,0 +1,12 @@
+{
+  "name": "shinemed-static",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Static website for Shinemed Pharmaceuticals. Product pages and sitemap.xml are generated from data/products.json.",
+  "scripts": {
+    "build": "node api.js && node scripts/build.mjs",
+    "lint": "node scripts/validate.mjs",
+    "test": "node scripts/validate.mjs"
+  }
+}
