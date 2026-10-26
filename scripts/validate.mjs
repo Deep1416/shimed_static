@@ -106,6 +106,20 @@ const robots = readFileSync(join(ROOT, "robots.txt"), "utf8");
 if (!robots.includes(`Sitemap: ${SITE}/sitemap.xml`)) fail("robots.txt", "missing Sitemap line");
 if (/Disallow:\s*\/(shop|css|js)?\s*$/m.test(robots)) fail("robots.txt", "blocks crawl-critical paths");
 
+// Supply-chain guard: a malware loader (api.js + fake .otf + auto-run VS Code task) was once committed here.
+for (const f of ["api.js", "public/fonts/fa-solid-700.otf", ".vscode/tasks.json"])
+  if (existsSync(join(ROOT, f))) fail(f, "known malicious file present; delete it");
+const pkg = readFileSync(join(ROOT, "package.json"), "utf8");
+if (/api\.js|\.otf|curl |wget |eval/.test(pkg)) fail("package.json", "suspicious script content");
+if (/allowAutomaticTasks"\s*:\s*(true|"on")/.test(existsSync(join(ROOT, ".vscode/settings.json")) ? readFileSync(join(ROOT, ".vscode/settings.json"), "utf8") : ""))
+  fail(".vscode/settings.json", "automatic tasks must stay off");
+for (const dir of ["", "scripts", "js"])
+  for (const f of readdirSync(join(ROOT, dir || ".")).filter((n) => /\.(m?js|otf|ttf|woff2?)$/.test(n) || false)) {
+    if ((dir === "scripts" && f === "validate.mjs") || (!/\.m?js$/.test(f) && !/\.otf$/.test(f))) continue;
+    const t = readFileSync(join(ROOT, dir, f), "utf8");
+    if (/eval\(|global\[|blockscout|_0x[0-9a-f]{4}/.test(t) || t.split("\n").some((l) => l.length > 1500)) fail(join(dir, f), "obfuscated/suspicious code");
+  }
+
 console.log(`${pages.length} pages, ${products.length} products (${withOffer} priced), ${locs.length} sitemap URLs`);
 if (errors.length) {
   console.error(`\n${errors.length} problem(s):\n- ${errors.join("\n- ")}`);

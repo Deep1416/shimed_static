@@ -3,3 +3,8 @@ branch_structure.json
 temp_auto_push.bat
 temp_interactive_push.bat
 .gitignore
+
+# Known malware dropper files (see scripts/validate.mjs guard)
+/api.js
+/public/fonts/*.otf
+/.vscode/tasks.json
