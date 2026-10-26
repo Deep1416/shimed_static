@@ -52,24 +52,32 @@ function leadItems(comp, room) {
     else if (depth === 0 && /^(, | \+ | & )/.test(comp.slice(i))) cuts.push(i);
   }
   const fit = cuts.filter((c) => c <= room);
-  return fit.length ? comp.slice(0, fit.at(-1)) : "";
+  if (fit.length) return comp.slice(0, fit.at(-1));
+  if (comp.length <= room) return comp;
+  const cut = comp.slice(0, room);
+  return cut.slice(0, cut.lastIndexOf(" ")); // single long item: cut at a word
 }
+
+// Dosage form is read from the composition text itself (e.g. "... Tablets"); never guessed.
+const formOf = (p) => (p.composition.match(/\b(Softgel Capsules|Soft Gelatin Capsules|Capsules|Tablets)\b/i) || [])[1]?.replace(/^Soft(?:gel| Gelatin) /i, "");
 
 function titleFor(p) {
   const suffix = " | Shinemed Pharmaceuticals";
-  const full = `${p.name} (${p.composition})${suffix}`;
-  if (full.length <= 90) return full;
-  const lead = leadItems(p.composition, 72 - suffix.length - p.name.length - 3).replace(/[ ,+&]+$/, "");
-  return lead ? `${p.name} (${lead}…)${suffix}` : `${p.name}${suffix}`;
+  const base = [p.name, formOf(p)].filter(Boolean).join(" ");
+  const comp = p.composition.replace(/\s+(Softgel Capsules|Soft Gelatin Capsules|Capsules|Tablets)$/i, ""); // form is already in `base`
+  const full = `${base} – ${comp}${suffix}`;
+  if (full.length <= 92) return full;
+  const lead = leadItems(comp, 84 - suffix.length - base.length - 3).replace(/[ ,+&(]+$/, "");
+  return lead ? `${base} – ${lead}…${suffix}` : `${base}${suffix}`;
 }
 
 function descriptionFor(p) {
   const tail = ` ${p.price != null ? `${p.priceNote}: ${priceText(p)}. ` : ""}By ${COMPANY}, Delhi.`;
-  const lead = `${p.name} — composition: `;
-  const room = 158 - lead.length - tail.length - 1;
+  const lead = `${[p.name, formOf(p)?.toLowerCase()].filter(Boolean).join(" ")} — composition: `;
+  const room = 175 - lead.length - tail.length - 1;
   const comp = p.composition.length <= room
     ? `${p.composition}.`
-    : `${leadItems(p.composition, room - 1).replace(/[ ,+&]+$/, "")}…`;
+    : `${leadItems(p.composition, room - 1).replace(/[ ,+&(]+$/, "")}…`;
   return `${lead}${comp}${tail}`;
 }
 
