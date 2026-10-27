@@ -6,6 +6,10 @@ ErrorDocument 404 /404.html
   # Collapse /index.html to / so there is one canonical homepage URL
   RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
   RewriteRule ^index\.html$ / [R=301,L]
+  # Guessable product URLs -> the single canonical /shop/<slug>.html (only when that product page exists)
+  RewriteCond %{DOCUMENT_ROOT}/shop/$1.html -f
+  RewriteRule ^(?:products|shop|product)/([a-z0-9-]+)/?$ /shop/$1.html [R=301,L]
+  RewriteRule ^products/?$ /shop.html [R=301,L]
 </IfModule>
 
 <IfModule mod_expires.c>
