@@ -95,6 +95,7 @@ function productPage(p) {
   const webp = `shop/${p.image.replace(/\.jpe?g$/, ".webp")}`;
   const hasWebp = exists(webp);
 
+  const extras = p.extraImages || [];
   const breadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -108,7 +109,7 @@ function productPage(p) {
     "@context": "https://schema.org",
     "@type": "Product",
     name: p.name,
-    image: imageUrl(p),
+    image: [imageUrl(p), ...extras.map((e) => `${SITE}/shop/${e.file}`)],
     description: p.description,
     brand: { "@type": "Brand", name: "Shinemed" },
     url,
@@ -142,6 +143,15 @@ function productPage(p) {
   const picture = hasWebp
     ? `<picture><source type="image/webp" srcset="../${webp}">${img}</picture>`
     : img;
+
+  const extraFigures = extras
+    .map((e) => {
+      const size = jpegSize(`shop/${e.file}`);
+      const ew = `shop/${e.file.replace(/\.jpe?g$/, ".webp")}`;
+      const eimg = `<img class="product-detail-extra__image" src="../shop/${e.file}" alt="${esc(e.alt)}" width="${size.width}" height="${size.height}" loading="lazy" decoding="async">`;
+      return `<figure class="product-detail-extra">${exists(ew) ? `<picture><source type="image/webp" srcset="../${ew}">${eimg}</picture>` : eimg}</figure>`;
+    })
+    .join("");
 
   const related = products
     .filter((o) => o.slug !== p.slug)
@@ -193,6 +203,7 @@ ${withRoot(header, "../")}<section class="page-hero" aria-labelledby="product-de
 <p class="product-detail-desc">${esc(p.description)}</p>
 <div class="product-detail-composition"><span class="product-detail-composition__label">Composition</span><p class="product-detail-composition__text">${esc(p.composition)}</p></div>
 <p class="product-detail-enquiry"><a class="action-button action-button--primary" href="../contact.html"><span>Enquire about ${esc(p.name)}</span></a></p></div></div>
+${extraFigures}
 <div class="product-detail-cards">
 ${cards}
 </div>
