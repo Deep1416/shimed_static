@@ -202,12 +202,12 @@ ${withRoot(header, "../")}<section class="page-hero" aria-labelledby="product-de
 <div class="product-detail-copy"><h2 class="product-detail-title">${esc(p.name)}</h2><p class="product-detail-tagline">${esc(p.tagline)}</p>${priceBlock}
 <p class="product-detail-desc">${esc(p.description)}</p>
 <div class="product-detail-composition"><span class="product-detail-composition__label">Composition</span><p class="product-detail-composition__text">${esc(p.composition)}</p></div>
-<p class="product-detail-enquiry"><a class="action-button action-button--primary" href="../contact.html"><span>Enquire about ${esc(p.name)}</span></a></p></div></div>
+${p.packSize ? `<div class="product-detail-composition"><span class="product-detail-composition__label">Pack size</span><p class="product-detail-composition__text">${esc(p.packSize)}</p></div>\n` : ""}<p class="product-detail-enquiry"><a class="action-button action-button--primary" href="../contact.html"><span>Enquire about ${esc(p.name)}</span></a></p></div></div>
 ${extraFigures}
 <div class="product-detail-cards">
 ${cards}
 </div>
-<aside class="product-disclaimer" aria-labelledby="disclaimer-heading"><h2 id="disclaimer-heading">Important information</h2><p>${esc(DISCLAIMER)}</p></aside>
+<aside class="product-disclaimer" aria-labelledby="disclaimer-heading"><h2 id="disclaimer-heading">Important information</h2>${p.prescription ? `<p><strong>Prescription medicine (Rx).</strong> The pack carries the Rx symbol. Use only on the advice of a qualified healthcare professional.</p>` : ""}<p>${esc(DISCLAIMER)}</p></aside>
 <nav class="product-related" aria-labelledby="related-heading"><h2 id="related-heading">More Shinemed products</h2><ul>${related}</ul><p><a href="../shop.html">View all products</a></p></nav>
 </div></section>
 ${withRoot(footer, "../")}<script src="../js/main.js"></script>

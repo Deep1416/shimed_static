@@ -32,7 +32,15 @@
           "Supports cycle regulation and high-risk pregnancies"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "dyshingest-10-pack.jpeg",
+        "alt": "Dyshingest-10 pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 1 x 10 Tablets",
+    "prescription": true
   },
   {
     "slug": "etococshine",
@@ -66,7 +74,14 @@
           "Improves physical functioning and quality of life"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "etococshine-pack.jpeg",
+        "alt": "Etococshine pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 10 Tablets"
   },
   {
     "slug": "ferosin-xt",
@@ -107,7 +122,14 @@
           "Gentle absorption with minimal GI side effects"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "ferosin-xt-pack.jpeg",
+        "alt": "Ferosin-XT pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 10 Tablets"
   },
   {
     "slug": "fertwin-f",
@@ -163,7 +185,14 @@
           "Potent fungistatic effective in immunocompromised patients"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "itramiz-200-pack.jpeg",
+        "alt": "Itramiz-200 pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 4 Capsules"
   },
   {
     "slug": "rabmed-d",
@@ -198,7 +227,15 @@
           "Dual action: acid suppression + promotes gastric emptying"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "rabmed-d-pack.jpeg",
+        "alt": "Rabmed-D pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 10 Capsules",
+    "prescription": true
   },
   {
     "slug": "shincal-max",
@@ -219,7 +256,14 @@
           "Inclusive of all taxes"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "shincal-max-pack.jpeg",
+        "alt": "Shincal MAX pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 15 Capsules"
   },
   {
     "slug": "shincal-xt",
@@ -255,7 +299,14 @@
           "Pyridoxal-5-Phosphate supports developing baby's neurotransmitters"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "shincal-xt-pack.jpeg",
+        "alt": "Shincal-XT pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 15 Tablets"
   },
   {
     "slug": "shineclav-cv-625",
@@ -291,7 +342,15 @@
           "Broad-spectrum coverage of gram +ve and -ve organisms"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "shineclav-cv-625-pack.jpeg",
+        "alt": "Shineclav-CV 625 pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 10 Tablets",
+    "prescription": true
   },
   {
     "slug": "shinewash",
@@ -331,7 +390,8 @@
         "file": "shinewash-pack.jpeg",
         "alt": "Shinewash 100 ml packs – Shinemed Pharmaceuticals"
       }
-    ]
+    ],
+    "packSize": "100 ml"
   },
   {
     "slug": "shingest-200",
@@ -408,7 +468,15 @@
           "Effective for both acute and chronic musculoskeletal conditions"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "thioshine-a-pack.jpeg",
+        "alt": "Thioshine A pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 10 Tablets",
+    "prescription": true
   },
   {
     "slug": "ziscovit-5g",
@@ -446,6 +514,13 @@
           "A Revolutionary Approach in Vital Healthcare"
         ]
       }
-    ]
+    ],
+    "extraImages": [
+      {
+        "file": "ziscovit-5g-pack.jpeg",
+        "alt": "Ziscovit-5G pack and strip – Shinemed Pharmaceuticals"
+      }
+    ],
+    "packSize": "10 x 10 Tablets"
   }
 ]
