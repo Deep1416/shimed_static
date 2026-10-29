@@ -83,6 +83,8 @@ function descriptionFor(p) {
 
 const altFor = (p) => `${p.name} product leaflet – Shinemed Pharmaceuticals`;
 
+const MARKETER = "Shinemed Pharmaceuticals Pvt Ltd, 9/334, Ground Floor, Gali No. 9, Lalita Park, Delhi - 110092";
+
 const DISCLAIMER =
   "Information on this website is provided for general product information only and should not be considered medical advice. Please consult a qualified healthcare professional before using any medicine or supplement.";
 
@@ -202,7 +204,7 @@ ${withRoot(header, "../")}<section class="page-hero" aria-labelledby="product-de
 <div class="product-detail-copy"><h2 class="product-detail-title">${esc(p.name)}</h2><p class="product-detail-tagline">${esc(p.tagline)}</p>${priceBlock}
 <p class="product-detail-desc">${esc(p.description)}</p>
 <div class="product-detail-composition"><span class="product-detail-composition__label">Composition</span><p class="product-detail-composition__text">${esc(p.composition)}</p></div>
-${p.packSize ? `<div class="product-detail-composition"><span class="product-detail-composition__label">Pack size</span><p class="product-detail-composition__text">${esc(p.packSize)}</p></div>\n` : ""}<p class="product-detail-enquiry"><a class="action-button action-button--primary" href="../contact.html"><span>Enquire about ${esc(p.name)}</span></a></p></div></div>
+${p.packSize ? `<div class="product-detail-composition"><span class="product-detail-composition__label">Pack size</span><p class="product-detail-composition__text">${esc(p.packSize)}</p></div>\n` : ""}<div class="product-detail-composition"><span class="product-detail-composition__label">Marketed by</span><p class="product-detail-composition__text">${esc(MARKETER)}</p></div>\n<p class="product-detail-enquiry"><a class="action-button action-button--primary" href="../contact.html"><span>Enquire about ${esc(p.name)}</span></a></p></div></div>
 ${extraFigures}
 <div class="product-detail-cards">
 ${cards}
@@ -214,6 +216,29 @@ ${withRoot(footer, "../")}<script src="../js/main.js"></script>
 </body>
 </html>
 `;
+}
+
+// --- shop.html product index (links + composition text), injected between markers
+const INDEX_START = "<!-- product-index:start -->";
+const INDEX_END = "<!-- product-index:end -->";
+function productIndex() {
+  const items = products
+    .map((p) => {
+      const comp = p.composition.length <= 120 ? p.composition : `${leadItems(p.composition, 118).replace(/[ ,+&(]+$/, "")}…`;
+      return `<li><a href="shop/${p.slug}.html">${esc(p.name)}</a> <span>${esc(comp)}</span></li>`;
+    })
+    .join("\n");
+  return `${INDEX_START}
+<section class="product-index" aria-labelledby="product-index-heading"><div class="product-index__inner"><h2 id="product-index-heading">All Shinemed products and compositions</h2><ul>
+${items}
+</ul></div></section>
+${INDEX_END}
+`;
+}
+function shopPage(html) {
+  const block = productIndex();
+  if (html.includes(INDEX_START)) return html.replace(new RegExp(`${INDEX_START}[\\s\\S]*?${INDEX_END}\\n?`), block);
+  return html.replace('<footer class="site-footer">', `${block}<footer class="site-footer">`);
 }
 
 // --- 404 page: root-absolute URLs because it is served from any path
@@ -275,6 +300,7 @@ export const helpers = { titleFor, descriptionFor, altFor, shortUrl, priceText }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   for (const p of products) writeFileSync(join(ROOT, `shop/${p.slug}.html`), productPage(p));
+  writeFileSync(join(ROOT, "shop.html"), shopPage(read("shop.html")));
   writeFileSync(join(ROOT, "404.html"), notFoundPage());
   writeFileSync(join(ROOT, "sitemap.xml"), sitemap());
   console.log(`Built ${products.length} product pages, 404.html, sitemap.xml`);

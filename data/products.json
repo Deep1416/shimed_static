@@ -90,39 +90,9 @@
     "image": "ferosin.jpeg",
     "price": 130.0,
     "priceNote": "MRP per strip of 10 tablets",
-    "description": "Ferosin-XT is a comprehensive nutritional supplement combining Ferrous Ascorbate 100 mg, Cyanocobalamin (Vitamin B12) 15 mcg, Folic Acid 200 mcg, Zinc 7.5 mg, and Vitamin D3 10 mg. This advanced five-in-one formula corrects iron deficiency anemia while supporting nerve function, bone strength, foetal development, and immunity — making it the ideal choice during pregnancy, lactation, and periods of rapid growth.",
-    "composition": "Ferrous Ascorbate 100 mg + Cyanocobalamin 15 mcg + Folic Acid 200 mcg + Zinc 7.5 mg + Vitamin D3 10 mg Tablets",
-    "cards": [
-      {
-        "title": "Indications",
-        "accent": false,
-        "items": [
-          "Iron Deficiency Anemia",
-          "Vitamin B12 Deficiency",
-          "Vitamin D Deficiency",
-          "Pregnancy & Lactation",
-          "Heavy Menstruation",
-          "Chronic / Acute Blood Loss",
-          "Rapid Growth & Development",
-          "Pernicious Anemia",
-          "Dietary Insufficiency",
-          "Postpartum Haemorrhage"
-        ]
-      },
-      {
-        "title": "Key Benefits",
-        "accent": true,
-        "items": [
-          "2× higher bioavailability than Ferric iron forms",
-          "Significantly raises Hemoglobin levels in Iron Deficiency Anemia",
-          "Cyanocobalamin (B12) supports nerve health and red blood cell formation",
-          "Folic Acid prevents neural tube defects and supports erythropoiesis",
-          "Vitamin D3 enhances calcium absorption and supports bone health",
-          "Zinc supports immune function and wound healing",
-          "Gentle absorption with minimal GI side effects"
-        ]
-      }
-    ],
+    "description": "Ferosin-XT tablets contain Ferrous Bis-Glycinate, Zinc Bis-Glycinate, Folic Acid and Methylcobalamin, as stated on the pack. Consult a qualified healthcare professional for guidance on use.",
+    "composition": "Ferrous Bis-Glycinate, Zinc Bis-Glycinate, Folic Acid & Methylcobalamin Tablets",
+    "cards": [],
     "extraImages": [
       {
         "file": "ferosin-xt-pack.jpeg",
