@@ -320,7 +320,10 @@
       }
     ],
     "packSize": "10 x 10 Tablets",
-    "prescription": true
+    "prescription": true,
+    "aliases": [
+      "Shineclav 625"
+    ]
   },
   {
     "slug": "shinewash",

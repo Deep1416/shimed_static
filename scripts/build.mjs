@@ -66,9 +66,7 @@ function titleFor(p) {
   const base = [p.name, formOf(p)].filter(Boolean).join(" ");
   const comp = p.composition.replace(/\s+(Softgel Capsules|Soft Gelatin Capsules|Capsules|Tablets)$/i, ""); // form is already in `base`
   const full = `${base} – ${comp}${suffix}`;
-  if (full.length <= 92) return full;
-  const lead = leadItems(comp, 84 - suffix.length - base.length - 3).replace(/[ ,+&(]+$/, "");
-  return lead ? `${base} – ${lead}…${suffix}` : `${base}${suffix}`;
+  return full.length <= 92 ? full : `${base} – Price & Composition${suffix}`;
 }
 
 function descriptionFor(p) {
@@ -80,6 +78,8 @@ function descriptionFor(p) {
     : `${leadItems(p.composition, room - 1).replace(/[ ,+&(]+$/, "")}…`;
   return `${lead}${comp}${tail}`;
 }
+
+const altNames = (p) => [...new Set([p.name.replace(/-/g, " "), ...(p.aliases || [])])].filter((n) => n !== p.name);
 
 const altFor = (p) => `${p.name} product leaflet – Shinemed Pharmaceuticals`;
 
@@ -113,6 +113,7 @@ function productPage(p) {
     name: p.name,
     image: [imageUrl(p), ...extras.map((e) => `${SITE}/shop/${e.file}`)],
     description: p.description,
+    ...(altNames(p).length ? { alternateName: altNames(p) } : {}),
     brand: { "@type": "Brand", name: "Shinemed" },
     url,
   };
@@ -287,13 +288,13 @@ function lastmod(...files) {
   return best;
 }
 function sitemap() {
-  const row = (loc, file, prio) =>
-    `  <url><loc>${loc}</loc><lastmod>${lastmod(...file)}</lastmod><priority>${prio}</priority></url>`;
+  const row = (loc, file, prio, imgs = []) =>
+    `  <url><loc>${loc}</loc><lastmod>${lastmod(...file)}</lastmod><priority>${prio}</priority>${imgs.map((i) => `<image:image><image:loc>${SITE}/shop/${i}</image:loc></image:image>`).join("")}</url>`;
   const rows = [
     ...STATIC_PAGES.map(([path, f, prio]) => row(`${SITE}/${path}`, [f], prio)),
-    ...products.map((p) => row(shortUrl(p), ["data/products.json", "scripts/build.mjs", "scripts/partials/header.html", "scripts/partials/footer.html"], "0.7")),
+    ...products.map((p) => row(shortUrl(p), ["data/products.json", "scripts/build.mjs", "scripts/partials/header.html", "scripts/partials/footer.html"], "0.7", [p.image, ...(p.extraImages || []).map((e) => e.file)])),
   ];
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows.join("\n")}\n</urlset>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${rows.join("\n")}\n</urlset>\n`;
 }
 
 export const helpers = { titleFor, descriptionFor, altFor, shortUrl, priceText };
@@ -301,6 +302,7 @@ export const helpers = { titleFor, descriptionFor, altFor, shortUrl, priceText }
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   for (const p of products) writeFileSync(join(ROOT, `shop/${p.slug}.html`), productPage(p));
   writeFileSync(join(ROOT, "shop.html"), shopPage(read("shop.html")));
+  writeFileSync(join(ROOT, "index.html"), shopPage(read("index.html")));
   writeFileSync(join(ROOT, "404.html"), notFoundPage());
   writeFileSync(join(ROOT, "sitemap.xml"), sitemap());
   console.log(`Built ${products.length} product pages, 404.html, sitemap.xml`);
