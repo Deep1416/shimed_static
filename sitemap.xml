@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url><loc>https://shinemedpharmaceuticals.com/</loc><lastmod>2026-10-29</lastmod><priority>1.0</priority></url>
   <url><loc>https://shinemedpharmaceuticals.com/about.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
   <url><loc>https://shinemedpharmaceuticals.com/services.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
   <url><loc>https://shinemedpharmaceuticals.com/shop.html</loc><lastmod>2026-10-29</lastmod><priority>0.9</priority></url>
   <url><loc>https://shinemedpharmaceuticals.com/contact.html</loc><lastmod>2026-10-23</lastmod><priority>0.8</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/dyshingest-10.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/etococshine.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/ferosin-xt.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/fertwin-f.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/itramiz-200.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/rabmed-d.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/shincal-max.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/shincal-xt.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/shineclav-cv-625.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/shinewash.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/shingest-200.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/shinoflam.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/thioshine-a.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
-  <url><loc>https://shinemedpharmaceuticals.com/shop/ziscovit-5g.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/dyshingest-10.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/dyshingest.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/dyshingest-10-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/etococshine.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/etococshine.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/etococshine-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/ferosin-xt.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/ferosin.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/ferosin-xt-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/fertwin-f.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/fertwin.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/itramiz-200.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/itramiz.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/itramiz-200-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/rabmed-d.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/rabmed.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/rabmed-d-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/shincal-max.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shincal-max.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shincal-max-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/shincal-xt.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shincal.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shincal-xt-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/shineclav-cv-625.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shineclav.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shineclav-cv-625-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/shinewash.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shinewash.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shinewash-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/shingest-200.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shingest.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/shinoflam.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/shinoflam.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/thioshine-a.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/thioshine.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/thioshine-a-pack.jpeg</image:loc></image:image></url>
+  <url><loc>https://shinemedpharmaceuticals.com/shop/ziscovit-5g.html</loc><lastmod>2026-10-29</lastmod><priority>0.7</priority><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/ziscovit.jpeg</image:loc></image:image><image:image><image:loc>https://shinemedpharmaceuticals.com/shop/ziscovit-5g-pack.jpeg</image:loc></image:image></url>
 </urlset>
