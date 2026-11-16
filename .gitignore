@@ -7,3 +7,5 @@ temp_interactive_push.bat
 # Known malware dropper files (see scripts/validate.mjs guard)
 /api.js
 /public/fonts/*.otf
+config.bat
+node_modules
